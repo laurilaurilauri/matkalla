@@ -4,13 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laurin kuvanurkkaus</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <style>
         /* 1. THE FOUNDATION */
         body {
             margin: 0;
             padding: 40px;
             background-color: #ffffff;
-            font-family: 'Helvetica', sans-serif;
+            font-family: 'Playfair Display', serif;
             color: #000;
         }
 
@@ -29,17 +33,18 @@
         /* 2. THE CREATIVE GRID */
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, 250px);
+            justify-content: center;
             grid-auto-rows: 150px; /* Base height for rows */
-            grid-gap: 20px;
-            max-width: 1200px;
+            gap: 40px 100px;
+            max-width: 1600px;
             margin: 0 auto;
         }
 
         /* 3. IMAGE STYLING */
         .art-item {
             background-color: #f9f9f9; /* Placeholder color */
-            border: 1px solid #000;
+            border: 1px solid #faf8f8;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -60,20 +65,22 @@
         }
 
         /* 4. VARYING THE SIZES (The "Creative Room") */
-        .large { grid-row: span 4; grid-column: span 2; }
+        .large { grid-row: span 2; grid-column: span 1; transform: scale(1.3);}
+        .huge { grid-row: span 4; grid-column: span 2;}
         .tall  { grid-row: span 4; }
         .wide  { grid-row: span 4; grid-column: span 4; }
         .small { grid-row: span 2; grid-column: span 1; }
 
         /* 5. TYPOGRAPHY IN BETWEEN */
         .text-break {
-            grid-column: 1 / -1; /* Spans the whole width */
-            padding: 60px 0;
+            grid-column: 1 / -1;  /*Spans the whole width */
+            padding-top: 60px;
+            padding-bottom: 80px;
             font-size: 1.5rem;
             font-weight: bold;
-            text-align: left;
-            border-top: 2px solid #000;
-            margin-top: 40px;
+            text-align: center;
+            border-top: 2px solid #505050;
+            margin-top: 100px;
         }
     </style>
 </head>
@@ -84,29 +91,28 @@
         <p>Rakennetaan Rakennetaan Rakennetaan Rakennetaan</p>
     </header>
 
+    <div class="text-break">Katse</div>
+
     <div class="gallery">
         <div class="art-item large"><img src="images/cordoba_ilmapallo.JPEG" alt="Cordoban ilmapallo"></div>
         <div class="art-item large"><img src="images/eripintaiset_naamat.JPEG" alt="Eripintaiset naamat"></div>
-        <div class="art-item small"><img src="images/frankenstein.JPEG" alt="Frank"></div>
-        <div class="art-item small"><img src="images/frankenstein.JPEG" alt="Frank"></div> 
-        <div class="text-break">
-            Kohtaamisia ja kukkia
-        </div>
-
-        <div class="art-item large"><img src="images/palapeli.JPEG" alt="Palapeli"></div>
-        <div class="art-item small"><img src="images/hahmo_ja_lintu.JPEG" alt="Hahmo ja lintu"></div> 
-        <div class="art-item small"><img src="images/hahmo_ja_lintu.JPEG" alt="Hahmo ja lintu"></div>
-        <div class="art-item large"><img src="images/kukat_vievät.JPEG" alt="Kukat vievät"></div>
-        <div class="text-break">
-            Lennokkaita unelmia
-        </div>
-
-        <div class="art-item wide"><img src="images/ajojahti.JPEG" alt="Ajojahti"></div>
-        <div class="art-item small"><img src="images/pelästynyt_ihmisjoukossa.JPEG" alt="Pelästynyt ihmisjoukossa"></div> 
-        <div class="art-item small"><img src="images/lennän_pois.JPEG" alt="Lennän pois"></div>
-
-
+        <div class="art-item large"><img src="images/frankenstein.JPEG" alt="Frank"></div>  
     </div>
 
+    <div class="text-break">Kohtaamisia ja kukkia</div>
+
+    <div class="gallery">
+        <div class="art-item large"><img src="images/palapeli.JPEG" alt="Palapeli"></div>
+        <div class="art-item large"><img src="images/hahmo_ja_lintu.JPEG" alt="Hahmo ja lintu"></div> 
+        <div class="art-item large"><img src="images/kukat_vievät.JPEG" alt="Kukat vievät"></div>
+    </div>
+
+    <div class="text-break">Lento</div>
+
+    <div class="gallery">
+        <div class="art-item huge"><img src="images/lentokoulu.JPEG" alt="Lentokoulu"></div>
+        <div class="art-item huge"><img src="images/kaukana_kotoa.JPEG" alt="Kaukana kotoa"></div> 
+    </div>
+    
 </body>
 </html>
