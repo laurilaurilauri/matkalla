@@ -16,6 +16,8 @@
             background-color: #ffffff;
             font-family: 'Playfair Display', serif;
             color: #000;
+            animation: smoothFade 450ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            will-change: opacity, transform; /* Performance hint for smoother animation */
         }
 
         header {
@@ -59,7 +61,7 @@
         }
 
         .art-item:hover {
-            transform: scale(1.06);
+            transform: scale(1.03);
             cursor: crosshair;
             filter: invert(1);
         }
@@ -82,6 +84,22 @@
             border-top: 2px solid #505050;
             margin-top: 100px;
         }
+        /* 6. ANIMATION (en tiiä tekeekö mitään)*/
+        @keyframes smoothFade {
+            from { 
+                opacity: 0; 
+                transform: translateY(15px); /* */
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        /* 3. ACCESSIBILITY (Add this at the very end) */
+        @media (prefers-reduced-motion: reduce) {
+            body { animation: none; } /* */
+        }
     </style>
 </head>
 <body>
@@ -94,7 +112,8 @@
     <div class="text-break">Katse</div>
 
     <div class="gallery">
-        <div class="art-item large"><img src="images/cordoba_ilmapallo.JPEG" alt="Cordoban ilmapallo" loading="lazy"></div>
+        <a href="cordoba-ilmapallo.html">
+            <div class="art-item large"><img src="images/cordoba_ilmapallo.JPEG" alt="Cordoban ilmapallo" loading="lazy"></div> </a>
         <div class="art-item large"><img src="images/eripintaiset_naamat.JPEG" alt="Eripintaiset naamat" loading="lazy"></div>
         <div class="art-item large"><img src="images/frankenstein.JPEG" alt="Frank" loading="lazy"></div>  
     </div>
@@ -113,6 +132,5 @@
         <div class="art-item huge"><img src="images/lentokoulu.JPEG" alt="Lentokoulu" loading="lazy"></div>
         <div class="art-item huge"><img src="images/kaukana_kotoa.JPEG" alt="Kaukana kotoa" loading="lazy"></div> 
     </div>
-    
 </body>
 </html>
