@@ -16,8 +16,6 @@
             background-color: #ffffff;
             font-family: 'Playfair Display', serif;
             color: #000;
-            animation: smoothFade 450ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
-            will-change: opacity, transform; /* Performance hint for smoother animation */
         }
 
         header {
@@ -84,16 +82,15 @@
             border-top: 2px solid #505050;
             margin-top: 100px;
         }
-        /* 6. ANIMATION (en tiiä tekeekö mitään)*/
-        @keyframes smoothFade {
-            from { 
-                opacity: 0; 
-                transform: translateY(15px); /* */
-            }
-            to { 
-                opacity: 1; 
-                transform: translateY(0); 
-            }
+        /* 6. ANIMATION */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
         }
 
         /* 3. ACCESSIBILITY (Add this at the very end) */
@@ -137,11 +134,38 @@
     </div>
 
 <script>
-    // This script detects if the page is being loaded from the "Back" button
+    // ANIMAATIONS FOR PAGE TRANSITIONS
+    // Fade in on initial load
+    function playFadeIn() {
+        document.body.style.animation = 'fadeIn 1s ease-out';
+    }
+    
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', playFadeIn);
+    } else {
+        playFadeIn();
+    }
+
+    // Fade out when navigating to same-site HTML files
+    document.addEventListener('click', function(e) {
+        const link = e.target.closest('a');
+        if (link && link.href) {
+            const href = link.href;
+            // Only intercept same-site HTML navigation
+            if ((href.endsWith('.html') || href.includes('.html')) && !href.includes('://')) {
+                e.preventDefault();
+                document.body.style.animation = 'fadeOut 0.5s ease-in forwards';
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 500);
+            }
+        }
+    });
+
+    // Fade in when returning via back button
     window.addEventListener('pageshow', function(event) {
         if (event.persisted) {
-            // If it is, we reload the page to trigger the CSS animation again
-            window.location.reload();
+            playFadeIn();
         }
     });
 </script>
