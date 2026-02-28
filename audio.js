@@ -21,13 +21,13 @@ if (audio && button) {
         const imageContainer = document.querySelector('.story-image');
         if (audio.paused) {
             audio.play().catch(err => console.warn('Playback failed:', err));
-            button.textContent = '⏸ Keskeytä kokemus';
+            button.textContent = 'Keskeytä kokemus';
             if (imageContainer) imageContainer.classList.add('playing');
             // start generating pulses every 200ms
             pulseInterval = setInterval(createPulse, 200);
         } else {
             audio.pause();
-            button.textContent = '▶ Uppoudu äänimaailmaan';
+            button.textContent = 'Uppoudu äänimaailmaan';
             if (imageContainer) imageContainer.classList.remove('playing');
             if (pulseInterval) {
                 clearInterval(pulseInterval);
