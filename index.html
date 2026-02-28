@@ -111,6 +111,8 @@
             .gallery .art-item {
                 flex: 1 1 calc(33.333% - 10px);
                 max-width: calc(33.333% - 10px);
+                background-color: #ffffff;
+                border: none;
             }
             /* for rows with only two items, they will naturally take 50% each */
             .gallery .art-item:nth-last-child(2):first-child,
@@ -141,6 +143,13 @@
                 width: 100%;
                 height: 100%;
             }
+            .gallery .art-item a {
+                display: block;
+                width: 100%;
+                height: 100%;
+                /* The following were moved from inline styles */
+                font-size: 0; /* Removes underline gap for image-only links */
+            }
         }
     </style>
 </head>
@@ -155,17 +164,17 @@
 
     <div class="gallery">
         <div class="art-item large">
-            <a href="stories/cordoba-ilmapallo.html" style="display: block; width: 100%; height: 100%;">
+            <a href="stories/cordoba-ilmapallo.html">
                 <img src="images/cordoba_ilmapallo.JPEG" alt="Cordoban ilmapallo" loading="lazy">
             </a>
         </div>
         <div class="art-item large">
-            <a href="stories/eripintaiset-kasvot.html" style="display: block; width: 100%; height: 100%;">
+            <a href="stories/eripintaiset-kasvot.html">
                 <img src="images/eripintaiset_naamat.JPEG" alt="Eripintaiset naamat" loading="lazy">
             </a>
         </div>
         <div class="art-item large">
-            <a href="stories/frankenstein.html" style="display: block; width: 100%; height: 100%;">
+            <a href="stories/frankenstein.html">
                 <img src="images/frankenstein.JPEG" alt="Frank" loading="lazy">
             </a>
         </div>
@@ -202,7 +211,7 @@
     </div>
 
 <script>
-    // ANIMAATIONS FOR PAGE TRANSITIONS
+    // ANIMATIONS FOR PAGE TRANSITIONS
     // Fade in on initial load
     function playFadeIn() {
         document.body.style.animation = 'fadeIn 1s ease-out';
