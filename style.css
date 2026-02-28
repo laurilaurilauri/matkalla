@@ -8,6 +8,23 @@
         .story-image { width: 600px; flex-shrink: 0; }
         .story-image img { width: 100%; border: 1px solid #fcf9f9; }
         .story-text { flex: 1; line-height: 1.6; }
+
+/* music button styling */
+#music-toggle {
+    font-family: inherit;
+    margin-top: 20px;
+    padding: 8px 16px;
+    background-color: #f2f2f2;
+    color: #000;
+    border: 1px solid #000;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+#music-toggle:hover {
+    background-color: #e0e0e0;
+}
         
         /* Mobile responsive */
         @media (max-width: 768px) { .container { flex-direction: column; } }
