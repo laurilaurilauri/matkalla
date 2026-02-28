@@ -99,6 +99,41 @@
         @media (prefers-reduced-motion: reduce) {
             body { animation: none; } /* */
         }
+
+        /* mobile gallery: make every item uniform size */
+        @media (max-width: 768px) {
+            .gallery {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                gap: 10px;
+            }
+            .gallery .art-item {
+                flex: 1 1 calc(33.333% - 10px);
+                max-width: calc(33.333% - 10px);
+            }
+            /* for rows with only two items, they will naturally take 50% each */
+            .gallery .art-item:nth-last-child(2):first-child,
+            .gallery .art-item:nth-last-child(2):first-child ~ .art-item {
+                flex: 1 1 calc(50% - 10px);
+                max-width: calc(50% - 10px);
+            }
+            /* cancel any span classes and transforms */
+            .gallery .large,
+            .gallery .huge,
+            .gallery .tall,
+            .gallery .wide,
+            .gallery .small {
+                grid-row: span 1 !important;
+                grid-column: span 1 !important;
+                transform: none !important;
+            }
+            .gallery .art-item img {
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+            }
+        }
     </style>
 </head>
 <body>

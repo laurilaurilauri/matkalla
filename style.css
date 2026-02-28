@@ -27,7 +27,15 @@
 }
         
         /* Mobile responsive */
-        @media (max-width: 768px) { .container { flex-direction: column; } }
+        @media (max-width: 768px) {
+            .container { flex-direction: column; gap: 20px; padding: 0 16px; }
+            body { padding: 20px; }
+            .story-image { width: 100%; max-width: 100%; }
+            .story-image img { width: 100%; height: auto; border: none; }
+            .story-text { padding-top: 10px; }
+            .back-link { margin-bottom: 20px; }
+            #music-toggle { display: block; width: 100%; box-sizing: border-box; padding: 12px; font-size: 16px; text-align: center; }
+        }
 
 /* ripple animation over image during playback */
 .story-image { position: relative; }
