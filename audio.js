@@ -23,7 +23,7 @@ if (audio && button) {
             audio.play().catch(err => console.warn('Playback failed:', err));
             button.textContent = '⏸ Keskeytä kokemus';
             if (imageContainer) imageContainer.classList.add('playing');
-            // start generating pulses every 700ms
+            // start generating pulses every 200ms
             pulseInterval = setInterval(createPulse, 200);
         } else {
             audio.pause();
