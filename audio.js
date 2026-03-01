@@ -38,3 +38,15 @@ if (audio && button) {
 } else {
     console.warn('audio or button element not found');
 }
+
+/* Fix for clunky page load out */
+/* Back link functionality: only go back if there's a valid history entry and the referrer is from the same site.*/
+const backLink = document.querySelector('.back-link');
+if (backLink) {
+    backLink.addEventListener('click', (e) => {
+        if (window.history.length > 1 && document.referrer.includes(window.location.host)) {
+            e.preventDefault();
+            window.history.back();
+        }
+    });
+}
