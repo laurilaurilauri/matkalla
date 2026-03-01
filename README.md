@@ -1,6 +1,8 @@
 # laurin-taidenurkkaus
-Kokeilu nettisivusta
+Kokeilu nettisivusta (building a personal portfolio website)
 
-## Audio feature
+# Audio feature
+Each story page includes a **Play music** button that toggles looped playback of an mp3 audiofile. The behavior is managed by `audio.js` and requires only modern browsers with HTML5 audio support.
 
-Place an MP3 file at `audio/music.mp3` in the root of the project (create the `audio` folder if it does not already exist). Each story page includes a **Play music** button that toggles looped playback of this file. The behavior is managed by `audio.js` and requires only modern browsers with HTML5 audio support.
+# Animation
+Playing music toggles an animation that resembles rain falling on the art piece. Intent to tweak this animation further in the future, maybe adding interactive possibilites for the viewer. 
