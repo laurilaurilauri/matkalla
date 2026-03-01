@@ -102,12 +102,19 @@
 
         /* mobile gallery: make every item uniform size */
         @media (max-width: 768px) {
+            .text-break {
+                padding-top: 20px;
+                padding-bottom: 20px;
+                margin-top: 40px;
+            }
+
             .gallery {
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: space-between;
-                gap: 5px;
+                gap: 1px;
             }
+            
             .gallery .art-item {
                 flex: 1 1 calc(33.333% - 10px);
                 max-width: calc(33.333% - 10px);
