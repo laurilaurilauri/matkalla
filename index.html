@@ -17,7 +17,7 @@
             background-color: #ffffff;
             font-family: 'Inter', sans-serif;
             color: #000;
-            animation: fadeIn 1.5s ease-out;
+            animation: fadeIn 3s ease-out; /* Initial fade-in animation */
         }
 
         header {
@@ -227,7 +227,7 @@
         <div class="art-item huge"><img src="images/juurikaupunki.JPEG" alt="Juurikaupunki" loading="lazy"></div> 
     </div>
 
-        <div class="text-break"><em>Yksinäinen, yksin</em></div>
+        <div class="text-break"><em>Yksinäinen/yksin</em></div>
 
     <div class="gallery">
         <div class="art-item large"><img src="images/elefantit.JPEG" alt="Elefantit" loading="lazy"></div>
@@ -250,7 +250,7 @@
         const body = document.body;
         body.style.animation = 'none'; // Kill any current animation
         void body.offsetWidth;         // Force the browser to "blink" (Reflow)
-        body.style.animation = 'fadeIn 1.5s ease-out forwards';
+        body.style.animation = 'fadeIn 1.5s ease-out forwards'; /* Start fade-in animation */
     }
 
     // Handle initial load
@@ -275,9 +275,9 @@
             const href = link.href;
             if (href.includes(window.location.origin) && href.endsWith('.html')) {
                 e.preventDefault();
-                document.body.style.animation = 'fadeOut 0.2s ease-in forwards';
+                document.body.style.animation = 'fadeOut 0.2s ease-in forwards'; /* Start fade-out animation */
                 setTimeout(() => {
-                    window.location.href = href;
+                    window.location.href = href; /* Navigate after fade-out completes */
                 }, 200); 
             }
         }
