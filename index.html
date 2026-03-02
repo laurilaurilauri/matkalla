@@ -274,11 +274,26 @@
         }
     });
 
-    // Fade in when returning via back button
+    /*// Fade in when returning via back button
     window.addEventListener('pageshow', function(event) {
         if (event.persisted) {
             playFadeIn();
         }
+    }); */
+
+    window.addEventListener('pageshow', function(event) {
+    // If the page was loaded from the cache (back button)
+    if (event.persisted) {
+        const body = document.body;
+        // Remove the old animation so we can trigger a fresh one
+        body.style.animation = 'none';
+        
+        // This "void" line forces the browser to notice the change
+        void body.offsetWidth; 
+        
+        // Re-apply the fade-in
+        body.style.animation = 'fadeIn 1s ease-out forwards';
+    }
     });
 </script>
 </body>
