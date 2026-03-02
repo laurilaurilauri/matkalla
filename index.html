@@ -177,7 +177,7 @@
 
     <header>
         <h1>Matkalla</h1>
-        <p><em>© LAURI PRUDANT 2026</em></p>
+        <p><em>LAURI PRUDANT © 2026</em></p>
     </header>
 
     <div class="text-break"><em>Katse</em></div>
@@ -271,14 +271,8 @@
 
     // Fade in when returning via back button
     window.addEventListener('pageshow', function(event) {
-        // event.persisted is true if the page is being restored from the back/forward cache (bfcache)
         if (event.persisted) {
-            // When restored from bfcache, the 'fadeOut' animation might have left the body transparent.
-            // We need to reset the animation property to ensure 'fadeIn' can be re-triggered.
-            document.body.style.animation = 'none';
-            setTimeout(() => {
-                playFadeIn();
-            }, 10); // A small delay ensures the style reset is processed.
+            playFadeIn();
         }
     });
 </script>
