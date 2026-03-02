@@ -251,12 +251,6 @@
         document.body.style.animation = 'fadeIn 1s ease-out';
     }
     
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', playFadeIn);
-    } else {
-        playFadeIn();
-    }
-
     // Fade out when navigating to same-site HTML files
     document.addEventListener('click', function(e) {
         const link = e.target.closest('a');
@@ -273,11 +267,11 @@
         }
     });
 
-    // Fade in when returning via back button
+    // Fade in on initial load and when returning via back button
     window.addEventListener('pageshow', function(event) {
-        if (event.persisted) {
-            playFadeIn();
-        }
+        // The pageshow event fires both on initial load and when a page is restored
+        // from the back-forward cache. This ensures the fade-in happens every time.
+        playFadeIn();
     });
 </script>
 </body>
