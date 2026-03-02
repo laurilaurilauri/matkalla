@@ -6,4 +6,3 @@ Each story page includes a **Play music** button that toggles looped playback of
 
 # Animation
 Playing music toggles an animation that resembles rain falling on the art piece. Intent to tweak this animation further in the future, maybe adding interactive possibilites for the viewer. 
-

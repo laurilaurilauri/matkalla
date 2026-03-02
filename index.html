@@ -51,8 +51,6 @@
             justify-content: center;
             overflow: hidden;
             transition: transform 0.3s ease;
-            --scale: 1; /* Default scale for non-hovered items */
-            transform: scale(var(--scale)); /* Apply the scale variable for consistent scaling on hover */
         }
 
         .art-item img {
@@ -62,16 +60,14 @@
         }
 
         .art-item:hover {
-            transform: scale(calc(var(--scale) * 1.02)) translateY(-3px); /* Scales based on the defined variable (1.02) and adds a slight lift */
+            /*transform: scale(1.00);*/
             cursor: crosshair;
             /*filter: invert(1);*/
-            opacity: 0.8;  /* Adds a subtle fade effect on hover */
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2); /* Adds a subtle shadow for depth */
-            z-index: 1; /* Ensures the zoomed image sits on top of neighbors */
+            opacity: 0.3;
         }
 
         /* 4. VARYING THE SIZES (The "Creative Room") */
-        .large { grid-row: span 2; grid-column: span 1; --scale: 1.3;}
+        .large { grid-row: span 2; grid-column: span 1; transform: scale(1.3);}
         .huge { grid-row: span 4; grid-column: span 2;}
         .tall  { grid-row: span 4; }
         .wide  { grid-row: span 4; grid-column: span 4; }
@@ -251,6 +247,12 @@
         document.body.style.animation = 'fadeIn 1s ease-out';
     }
     
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', playFadeIn);
+    } else {
+        playFadeIn();
+    }
+
     // Fade out when navigating to same-site HTML files
     document.addEventListener('click', function(e) {
         const link = e.target.closest('a');
@@ -267,11 +269,11 @@
         }
     });
 
-    // Fade in on initial load and when returning via back button
+    // Fade in when returning via back button
     window.addEventListener('pageshow', function(event) {
-        // The pageshow event fires both on initial load and when a page is restored
-        // from the back-forward cache. This ensures the fade-in happens every time.
-        playFadeIn();
+        if (event.persisted) {
+            playFadeIn();
+        }
     });
 </script>
 </body>
